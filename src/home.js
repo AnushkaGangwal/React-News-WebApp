@@ -3,12 +3,15 @@ import MainCard from './mainCard.js';
 import Loader from './loader.js';
 
 class Home extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {articlesList: [], isLoading: false};
     }
 
     componentDidMount() {
+        if(this.props.searchTabProp || this.props.bookmarksTabProp)
+            this.props.setTab();
+
         this.setState({
             isLoading : true
         })

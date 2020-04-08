@@ -9,6 +9,9 @@ class Business extends React.Component {
     }
 
     componentDidMount() {
+        if(this.props.searchTabProp || this.props.bookmarksTabProp)
+            this.props.setTab();
+
         this.setState({
             isLoading : true
         })
